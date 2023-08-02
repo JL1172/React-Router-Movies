@@ -1,9 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Route, Routes } from "react-router-dom";
 import React from "react";
 
 export default function MovieDetails(props) {
     const navigate = useNavigate(); 
     const { title, director, metascore, id } = props.movie;
+    const {link} = props;
     const clickMovie = () => {
       navigate(`/movie/${id}`)
     }
@@ -15,6 +16,9 @@ export default function MovieDetails(props) {
         </div>
         <div className="movie-metascore">
           Metascore: <strong>{metascore}</strong>
+        </div>
+        <div>
+          {link}
         </div>
       </div>
     );

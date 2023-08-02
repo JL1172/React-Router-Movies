@@ -6,6 +6,7 @@ export default function Movie(props) {
   const [movie, setMovie] = useState();
   const navigate = useNavigate();
   const {id} = useParams(); //!
+  const {saved,setSaved,addToSavedList,select,setSelect} = props;
   
   // Change ^^^ that line and use a hook to obtain the :id parameter from the URL
 
@@ -23,10 +24,11 @@ export default function Movie(props) {
 }, [id]);   // This effect should run every time time
             // the `id` changes... How could we do this?
       
-
+  
   // Uncomment this only when you have moved on to the stretch goals
-  const saveMovie = evt => {
-      
+  const saveMovie = () => {
+    setSaved((saved) => saved = (movie));
+
    }
 
   if (!movie) {
