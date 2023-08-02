@@ -27,8 +27,7 @@ export default function Movie(props) {
   
   // Uncomment this only when you have moved on to the stretch goals
   const saveMovie = () => {
-    setSaved((saved) => saved = (movie));
-
+    addToSavedList(movie.id)
    }
 
   if (!movie) {
