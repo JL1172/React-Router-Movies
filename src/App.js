@@ -8,16 +8,16 @@ export default function App () {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    const getMovies = () => {
-      axios
-        .get('http://localhost:5001/api/movies') // Study this endpoint with Postman
-        .then(response => {
-          // Study this response with a breakpoint or log statements
-          // and set the response data as the 'movies' slice of state
-        })
-        .catch(error => {
-          console.error('Server Error', error);
-        });
+    async function getMovies() {
+      const res = await axios.get('http://localhost:5001/api/movies') // Study this endpoint with Postman
+      try {
+        setMovies(res.data)
+        console.log(res.data)// Study this response with a breakpoint or log statements //*breakpoint is debugger
+        // and set the response data as the 'movies' slice of state
+        //! debugger
+      } catch {
+        console.log(new Error);
+      }
     }
     getMovies();
   }, []);
